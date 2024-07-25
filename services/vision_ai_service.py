@@ -25,9 +25,7 @@ def procesar_imagen(image_url):
             cantidad_estimada = 100  # Asumir 100 gramos por defecto (puedes ajustar esto)
             alimentos_identificados.append({
                 "nombre": label.description,
-                "cantidad": cantidad_estimada,
-                "preparacion": "no especificado"  # Agregar información de preparación si es posible
+                "cantidad": cantidad_estimada
             })
 
     return alimentos_identificados
-

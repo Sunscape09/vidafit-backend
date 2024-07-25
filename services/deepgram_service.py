@@ -1,6 +1,6 @@
 import os
-from deepgram import Deepgram
 import asyncio
+from deepgram import Deepgram
 
 async def transcribir_audio_async(audio_url):
     """Transcribe un audio usando Deepgram (asíncronamente)."""
@@ -21,8 +21,9 @@ async def transcribir_audio_async(audio_url):
     try:
         # Realizar la transcripción
         response = await dg_client.transcription.prerecorded_from_url(audio_url, options)
-        transcript = response['results']['channels'][0]['alternatives'][0]['transcript']
-
+        transcript = ""
+        for utterance in response['results']['utterances']:
+            transcript += utterance['transcript'] + " "
         return transcript
 
     except Exception as e:

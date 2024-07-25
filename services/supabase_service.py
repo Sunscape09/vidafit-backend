@@ -40,7 +40,7 @@ def registrar_alimento(nombre, calorias, proteinas, carbohidratos, grasas):
             "carbohidratos_por_100g": carbohidratos,
             "grasas_por_100g": grasas
         }).execute()
-        return data.data[0]["id"]
+        return data.data[0]["id"]  # Devuelve el ID del alimento insertado
     except Exception as e:
         print(f"Error al registrar alimento: {e}")
         return None
@@ -113,11 +113,9 @@ def obtener_resumen_diario(usuario_id, fecha):
     except Exception as e:
         print(f"Error al obtener resumen diario: {e}")
         return None
-# ... (otras importaciones y funciones existentes)
-
-# Funciones para Ejercicios
-def registrar_ejercicio(nombre, calorias_por_minuto=None, musculos_trabajados=None):
-    """Registra un nuevo ejercicio en la base de datos."""
+    
+    def registrar_ejercicio(nombre, calorias_por_minuto=None, musculos_trabajados=None):
+            """Registra un nuevo ejercicio en la base de datos."""
     try:
         data = supabase.table("ejercicios").insert({
             "nombre": nombre,
@@ -190,6 +188,7 @@ def obtener_meta_agua_actual(usuario_id):
         print(f"Error al obtener meta de agua actual: {e}")
         return None
 
+# Funciones para Medicamentos (Actualizar y Eliminar)
 def actualizar_medicamento(medicamento_id, nombre=None, dosis=None, frecuencia=None, horario=None):
     """Actualiza los datos de un medicamento existente."""
     try:
