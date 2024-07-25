@@ -1,1 +1,1 @@
-﻿web: gunicorn app:app       # Tu versión
+web: gunicorn app:app       # Tu versión
